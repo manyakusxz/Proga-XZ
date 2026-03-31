@@ -1,29 +1,152 @@
+/* БАЗОВЫЕ НАСТРОЙКИ И ЦВЕТА */
 :root {
-    /* ... твои цвета ... */
-    --font-size-main: 16px; /* Уменьшаем основной шрифт с 22px до 16px */
+    --bg-color: #000000;
+    --card-bg: #0a0a0a;
+    --accent-color: #007bff; 
+    --text-main: #ffffff;
+    --border-color: #222222;
+    --danger: #ff4444;
+    --row-bg: #151515;
+    --font-size-main: 16px; /* Твоя настройка для компактности */
 }
 
+/* ОБЩИЕ СТИЛИ */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Arial Black', sans-serif; 
+    text-transform: uppercase; 
+}
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    padding: 5px; 
+    display: flex; 
+    justify-content: center; 
+}
+
+.main-wrapper { 
+    width: 100%; 
+    max-width: 1200px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+h1 { 
+    font-size: 24px; 
+    color: var(--accent-color); 
+    margin: 10px 0; 
+    letter-spacing: 1px; 
+    text-align: center; 
+}
+
+/* НАВИГАЦИЯ (ВКЛАДКИ) */
+.app-nav { 
+    width: 100%; 
+    display: flex; 
+    gap: 4px; 
+    margin-bottom: 15px; 
+}
+
+.nav-link {
+    flex: 1; 
+    background-color: #111; 
+    color: #fff; 
+    border: 1px solid var(--border-color);
+    border-radius: 8px; 
+    padding: 10px 2px; 
+    font-size: 10px; 
+    font-weight: bold; 
+    cursor: pointer;
+}
+
+.nav-link.active { 
+    background-color: var(--accent-color); 
+    border-color: var(--accent-color); 
+}
+
+.tab-content { 
+    display: none; 
+    width: 100%; 
+}
+
+.tab-content.active-tab { 
+    display: block; 
+}
+
+/* ВЫПАДАЮЩИЕ СПИСКИ (SELECT) */
+select {
+    background-color: var(--row-bg); 
+    color: #fff; 
+    font-weight: 900;
+    border: none; 
+    font-size: 16px; 
+    outline: none; 
+    appearance: none; 
+    cursor: pointer;
+}
+
+option { 
+    background-color: #1a1a1a; 
+    color: #ffffff; 
+    font-size: 16px; 
+}
+
+/* КАРТОЧКИ ДНЕЙ */
+.app-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.day-card {
+    background-color: var(--card-bg); 
+    border-radius: 12px; 
+    padding: 10px;
+    border: 1px solid var(--border-color); 
+    border-top: 4px solid var(--accent-color);
+}
+
+.day-title {
+    font-size: 18px; 
+    margin-bottom: 10px; 
+    color: var(--accent-color);
+    text-align: center; 
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 5px;
+}
+
+/* СТРОКА УПРАЖНЕНИЯ (КОМПАКТНАЯ) */
 .exercise-row {
     display: flex; 
     align-items: center; 
-    gap: 5px; /* Уменьшаем зазор между элементами */
+    gap: 5px; 
     margin-bottom: 8px;
     background-color: var(--row-bg); 
-    padding: 8px 5px; /* Уменьшаем внутренние отступы */
-    border-radius: 10px;
+    padding: 8px 5px; 
+    border-radius: 8px;
+}
+
+.drag-handle { 
+    color: var(--accent-color); 
+    cursor: grab; 
+    font-size: 18px; 
+    padding-right: 2px; 
 }
 
 .sel-exercise { 
-    flex: 2; /* Даем названию упражнения больше места */
+    flex: 2; 
     min-width: 0; 
-    font-size: 14px; /* Шрифт названия чуть меньше */
+    font-size: 14px; 
 }
 
 .sel-num { 
-    width: 45px; /* Сужаем выпадающие списки с числами */
+    width: 42px; 
     text-align: center; 
-    border-bottom: 2px solid var(--accent-color);
-    font-size: 16px;
+    border-bottom: 2px solid var(--accent-color); 
 }
 
 .multiplier { 
@@ -31,12 +154,89 @@
     font-size: 16px; 
 }
 
-.drag-handle { 
-    font-size: 18px; 
-    padding-right: 2px;
+.btn-remove { 
+    background-color: transparent; 
+    color: var(--danger); 
+    border: none; 
+    font-size: 22px; 
+    cursor: pointer; 
+    padding-left: 5px; 
 }
 
-.btn-remove { 
-    font-size: 20px; 
-    padding-left: 5px;
+/* КНОПКИ И ВВОД */
+.btn-add {
+    width: 100%; 
+    background: #111; 
+    color: #fff; 
+    border: 1px dashed var(--accent-color);
+    border-radius: 10px; 
+    padding: 10px; 
+    font-size: 12px; 
+    margin-top: 5px; 
+    cursor: pointer;
+}
+
+.card-inner { 
+    background: var(--card-bg); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+    padding: 15px; 
+}
+
+input {
+    width: 100%; 
+    background: #111; 
+    color: #fff; 
+    border: 1px solid var(--border-color);
+    border-radius: 8px; 
+    padding: 12px; 
+    font-size: 16px; 
+    margin-bottom: 10px; 
+    outline: none;
+}
+
+/* СПИСКИ И СТАТИСТИКА */
+.existing-exercises-list { 
+    margin-top: 10px; 
+    padding: 8px; 
+    background: #111; 
+    border-radius: 8px; 
+    max-height: 350px; 
+    overflow-y: auto; 
+}
+
+.ex-item {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 5px;
+    border-bottom: 1px solid #222; 
+    font-size: 13px;
+}
+
+.btn-delete-ex { 
+    background: transparent; 
+    color: var(--danger); 
+    border: 1px solid var(--danger); 
+    border-radius: 5px; 
+    padding: 2px 6px; 
+    cursor: pointer; 
+    font-size: 11px; 
+}
+
+.stats-item {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 12px; 
+    background: var(--row-bg); 
+    margin-bottom: 8px;
+    border-radius: 8px; 
+    border-left: 4px solid var(--accent-color);
+}
+
+.stats-count { 
+    font-size: 18px; 
+    color: var(--accent-color); 
+    font-weight: 900; 
 }
