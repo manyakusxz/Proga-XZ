@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ПРОГА XZ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007bff">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <h1>ПРОГА XZ</h1>
+
+        <nav class="app-nav">
+            <button class="nav-link active" onclick="switchTab(this, 'tab-workout')">ПРОГРАММА</button>
+            <button class="nav-link" onclick="switchTab(this, 'tab-settings')">БАЗА УПР.</button>
+            <button class="nav-link" onclick="switchTab(this, 'tab-stats'); updateStats();">НЕДЕЛЯ</button>
+        </nav>
+
+        <div id="tab-workout" class="tab-content active-tab">
+            <div class="app-container" id="app"></div>
+        </div>
+
+        <div id="tab-settings" class="tab-content">
+            <div class="card-inner">
+                <h2 style="color:var(--accent-color); margin-bottom:10px;">НОВОЕ УПРАЖНЕНИЕ:</h2>
+                <input type="text" id="newExInput" placeholder="НАЗВАНИЕ...">
+                <button style="width:100%; padding:15px; background:var(--accent-color); border:none; color:#fff; border-radius:10px; font-weight:bold; cursor:pointer;" onclick="addNewExercise()">ДОБАВИТЬ В БАЗУ</button>
+                
+                <h2 style="color:var(--accent-color); margin-top:25px;">УПРАВЛЕНИЕ СПИСКОМ:</h2>
+                <div id="fullList" class="existing-exercises-list"></div>
+            </div>
+        </div>
+
+        <div id="tab-stats" class="tab-content">
+            <div class="card-inner">
+                <h2 style="color:var(--accent-color); margin-bottom:15px;">ИТОГО СЕТОВ:</h2>
+                <div id="statsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker Registered'));
+        }
+    </script>
+</body>
+</html>

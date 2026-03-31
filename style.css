@@ -1,0 +1,93 @@
+:root {
+    --bg-color: #000000;
+    --card-bg: #0a0a0a;
+    --accent-color: #007bff; 
+    --text-main: #ffffff;
+    --border-color: #222222;
+    --danger: #ff4444;
+    --row-bg: #151515;
+    --font-size-main: 22px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Arial Black', sans-serif; text-transform: uppercase; }
+
+body { background-color: var(--bg-color); color: var(--text-main); padding: 10px; display: flex; justify-content: center; }
+
+.main-wrapper { width: 100%; max-width: 1200px; display: flex; flex-direction: column; align-items: center; }
+
+h1 { font-size: 32px; color: var(--accent-color); margin: 15px 0; letter-spacing: 2px; text-align: center; }
+
+.app-nav { width: 100%; display: flex; gap: 5px; margin-bottom: 20px; }
+
+.nav-link {
+    flex: 1; background-color: #111; color: #fff; border: 1px solid var(--border-color);
+    border-radius: 8px; padding: 12px 5px; font-size: 11px; font-weight: bold; cursor: pointer;
+}
+
+.nav-link.active { background-color: var(--accent-color); border-color: var(--accent-color); }
+
+.tab-content { display: none; width: 100%; }
+.tab-content.active-tab { display: block; }
+
+select {
+    background-color: var(--row-bg); color: #fff; font-weight: 900;
+    border: none; font-size: var(--font-size-main); outline: none; appearance: none; cursor: pointer;
+}
+
+option { background-color: #1a1a1a; color: #ffffff; font-size: 18px; }
+
+.app-container { display: flex; flex-direction: column; gap: 20px; }
+
+@media (min-width: 1000px) {
+    .app-container { flex-direction: row; align-items: flex-start; }
+    .day-card { flex: 1; }
+}
+
+.day-card {
+    background-color: var(--card-bg); border-radius: 15px; padding: 15px;
+    border: 2px solid var(--border-color); border-top: 5px solid var(--accent-color);
+}
+
+.day-title {
+    font-size: var(--font-size-main); margin-bottom: 15px; color: var(--accent-color);
+    text-align: center; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;
+}
+
+.exercise-row {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+    background-color: var(--row-bg); padding: 10px; border-radius: 10px;
+}
+
+.drag-handle { color: var(--accent-color); cursor: grab; font-size: 24px; }
+.sel-exercise { flex: 1; min-width: 0; }
+.sel-num { width: 55px; text-align: center; border-bottom: 3px solid var(--accent-color); }
+.multiplier { color: var(--accent-color); font-size: 20px; }
+.btn-remove { background-color: transparent; color: var(--danger); border: none; font-size: 26px; cursor: pointer; }
+
+.btn-add {
+    width: 100%; background: #111; color: #fff; border: 2px dashed var(--accent-color);
+    border-radius: 10px; padding: 12px; font-size: 14px; margin-top: 10px; cursor: pointer;
+}
+
+.card-inner { background: var(--card-bg); border: 2px solid var(--border-color); border-radius: 15px; padding: 20px; }
+
+input {
+    width: 100%; background: #111; color: #fff; border: 2px solid var(--border-color);
+    border-radius: 10px; padding: 15px; font-size: 18px; margin-bottom: 15px; outline: none;
+}
+
+.existing-exercises-list { margin-top: 15px; padding: 10px; background: #111; border-radius: 10px; max-height: 400px; overflow-y: auto; }
+
+.ex-item {
+    display: flex; justify-content: space-between; align-items: center; padding: 12px 5px;
+    border-bottom: 1px solid #222; font-size: 14px;
+}
+
+.btn-delete-ex { background: transparent; color: var(--danger); border: 1px solid var(--danger); border-radius: 5px; padding: 2px 8px; cursor: pointer; font-size: 12px; }
+
+.stats-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px; background: var(--row-bg); margin-bottom: 10px;
+    border-radius: 10px; border-left: 5px solid var(--accent-color);
+}
+.stats-count { font-size: 22px; color: var(--accent-color); font-weight: 900; }
